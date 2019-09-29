@@ -1,13 +1,15 @@
-module Alfa_Xylo(Tom,Notas,Saidas)
-    input wire Tom; // Entrada A do circuito
-    input wire [2:0] Notas; // B, C e D
-    output wire [6:0] Saidas;
+module Alfa_desc(Tom, notas1, notas2, notas3, saida1, saida2, saida3, saida4, saida5, saida6, saida7);
+    input wire  Tom;
+    input wire notas1, notas2, notas3; // B, C e D
+    output reg saida1, saida2, saida3, saida4, saida5, saida6, saida7;
 
-    assign Saidas[6] = (~Notas[2] & ~Notas[1] & ~Notas[0]) | Tom;
-    assign Saidas[5] = (~Tom & ~Notas[1] & Notas[0]) | (~Notas[1] & ~Notas[0]) | (Tom & ~Notas[2] & ~Notas[1]) | (Tom & ~Notas[2] & Notas[0]);
-    assign Saidas[4] = (~Notas[1] & ~Notas[0]) | (Tom & Notas[0]) | (Notas[2] & Notas[1] & Notas[0]);
-    assign Saidas[3] = (~Tom & ~Notas[2]) | (~Tom & Notas[2] & Notas[0]) | (Notas[2] & Notas[1] & ~Notas[0]);
-    assign Saidas[2] = (~Notas[1] & ~Notas[0]) | (~Tom & Notas[2] & Notas[1] & Notas[0]) | (Tom & Notas[2] & Notas[1]) | (Notas[2] & Notas[1] & ~Notas[0]);
-    assign Saidas[1] = (~Tom & ~Notas[1] & ~Notas[0]) | (Tom & ~Notas[2]) | (~Tom & ~Notas[2] & Notas[0]) | (Tom & Notas[1] & ~Notas[0]);
-    assign Saidas[0] = (~Notas[2] & ~Notas[1] & ~Notas[0]) | (Notas[2] & ~Notas[1] & Notas[0]) | (~Tom & ~Notas[2] & Notas[1]);
+    always @ ( * ) begin
+        saida1 = (~notas3 & ~notas2 & ~notas1) | Tom;
+        saida2 = (~Tom & ~notas2 & notas1) | (~notas2 & ~notas1) | (Tom & ~notas3 & ~notas2) | (Tom & ~notas3 & notas1);
+        saida3 = (~notas2 & ~notas1) | (Tom & notas1) | (notas3 & notas2 & notas1);
+        saida4 = (~Tom & ~notas3) | (~Tom & notas3 & notas1) | (notas3 & notas2 & ~notas1);
+        saida5 = (~notas2 & ~notas1) | (~Tom & notas3 & notas2 & notas1) | (Tom & notas3 & notas2) | (notas3 & notas2 & ~notas1);
+        saida6 = (~Tom & ~notas2 & ~notas1) | (Tom & ~notas3) | (~Tom & ~notas3 & notas1) | (Tom & notas2 & ~notas1);
+        saida7 = (~notas3 & ~notas2 & ~notas1) | (notas3 & ~notas2 & notas1) | (~Tom & ~notas3 & notas2);
+    end
 endmodule//Tom,Notas,Saida
