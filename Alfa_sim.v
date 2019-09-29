@@ -1,37 +1,39 @@
 `include "Alfa_desc.v"
 
-module Alfa_xylo();
-    reg Tom;
-    reg  [2:0] Notas;
-    wire [6:0] Saidas;
-    Alfa_xylo sim_instancia(.Tom(tom), .Notas(notas), .Saidas(saidas));
-    
+module Alfa_sim();
+    reg tom;
+    reg  notas1, notas2, notas3;
+    wire saida1, saida2, saida3, saida4, saida5, saida6, saida7;
+
+    Alfa_desc sim_instancia(.Tom(tom), .notas1(notas1), .notas2(notas2), .notas3(notas3), .saida1(saida1), .saida2(saida2), .saida3(saida3), .saida4(saida4), .saida5(saida5), .saida6(saida6), .saida7(saida7));
+
     initial begin
-        tom = 1'b0;
-        notas = 3'b0;
-        clock = 1'b0;
-        $dumpfile("sim-onda.vcd");
-        $dumpvars;
-        $monitor("%b%b%b%b saida = %b", tom, notas[2], notas[1], notas[0], saidas);
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
-        #2  tom = 1'b0; notas[2] = 1'b0;  notas[1] = 1'b0; notas[0] = 1'b0;
+        $dumpfile("onda.vcd");
+        $dumpvars(0, Alfa_sim);
+        $monitor("%b%b%b%b saida = %b%b%b%b%b%b%b", tom, notas1, notas2, notas3, saida1, saida2, saida3, saida4, saida5, saida6, saida7);
+    end
+
+    initial begin
+            tom = 1'b0;
+            notas1 = 1'b0;
+            notas2 = 1'b0;
+            notas3 = 1'b0;
+            #2  tom = 1'b0; notas3 = 1'b0;  notas2 = 1'b0; notas1 = 1'b0;
+            #2  tom = 1'b0; notas3 = 1'b0;  notas2 = 1'b0; notas1 = 1'b1;
+            #2  tom = 1'b0; notas3 = 1'b0;  notas2 = 1'b1; notas1 = 1'b0;
+            #2  tom = 1'b0; notas3 = 1'b0;  notas2 = 1'b1; notas1 = 1'b1;
+            #2  tom = 1'b0; notas3 = 1'b1;  notas2 = 1'b0; notas1 = 1'b0;
+            #2  tom = 1'b0; notas3 = 1'b1;  notas2 = 1'b0; notas1 = 1'b1;
+            #2  tom = 1'b0; notas3 = 1'b1;  notas2 = 1'b1; notas1 = 1'b0;
+            #2  tom = 1'b0; notas3 = 1'b1;  notas2 = 1'b1; notas1 = 1'b1;
+            #2  tom = 1'b1; notas3 = 1'b0;  notas2 = 1'b0; notas1 = 1'b0;
+            #2  tom = 1'b1; notas3 = 1'b0;  notas2 = 1'b0; notas1 = 1'b1;
+            #2  tom = 1'b1; notas3 = 1'b0;  notas2 = 1'b1; notas1 = 1'b0;
+            #2  tom = 1'b1; notas3 = 1'b0;  notas2 = 1'b1; notas1 = 1'b1;
+            #2  tom = 1'b1; notas3 = 1'b1;  notas2 = 1'b0; notas1 = 1'b0;
+            #2  tom = 1'b1; notas3 = 1'b1;  notas2 = 1'b0; notas1 = 1'b1;
+            #2  tom = 1'b1; notas3 = 1'b1;  notas2 = 1'b1; notas1 = 1'b0;
+            #2  tom = 1'b1; notas3 = 1'b1;  notas2 = 1'b1; notas1 = 1'b1;
         $finish;
     end
-    always begin
-        clock = ~clock;
-    end
-endmodule 
+endmodule
