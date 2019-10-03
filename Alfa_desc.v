@@ -7,9 +7,10 @@ module Alfa_desc(Tom, notas1, notas2, notas3, saida1, saida2, saida3, saida4, sa
         saida1 = (~notas3 & ~notas2 & ~notas1) | Tom;
         saida2 = (~Tom & ~notas2 & notas1) | (~notas2 & ~notas1) | (Tom & ~notas3 & ~notas2) | (Tom & ~notas3 & notas1);
         saida3 = (~notas2 & ~notas1) | (Tom & notas1) | (notas3 & notas2 & notas1);
-        saida4 = (~Tom & ~notas3) | (~Tom & notas3 & notas1) | (notas3 & notas2 & ~notas1);
+        saida4 = (~Tom & ~notas3) | (~Tom & notas3 & notas1) | (notas3 & notas2 & ~notas1) | (~notas1 & ~notas2 & ~notas3);
         saida5 = (~notas2 & ~notas1) | (~Tom & notas3 & notas2 & notas1) | (Tom & notas3 & notas2) | (notas3 & notas2 & ~notas1);
         saida6 = (~Tom & ~notas2 & ~notas1) | (Tom & ~notas3) | (~Tom & ~notas3 & notas1) | (Tom & notas2 & ~notas1);
         saida7 = (~notas3 & ~notas2 & ~notas1) | (notas3 & ~notas2 & notas1) | (~Tom & ~notas3 & notas2);
     end
 endmodule//Tom,Notas,Saida
+
