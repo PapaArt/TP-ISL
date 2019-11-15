@@ -12,4 +12,4 @@ module Alfa_desc(Tom, notas1, notas2, notas3, saida1, saida2, saida3, saida4, sa
         saida6 = (~Tom & ~notas2 & ~notas3) | (Tom & ~notas1) | (~Tom & ~notas1 & notas3) | (Tom & notas2 & ~notas3);
         saida7 = (~notas1 & ~notas2 & ~notas3) | (notas1 & ~notas2 & notas3) | (~Tom & ~notas1 & notas2);
     end
-endmodule//Tom,Notas,Saida
+endmodule//Tom,Notas,Saidas
